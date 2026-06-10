@@ -1,31 +1,41 @@
-const bt = document.getElementById("btn-enviar")
+const bt = document.getElementById("btn-enviar");
 
-bt.addEventListener('click', async function slaNome() {
-    try{
-        const nome = document.getElementById("nome").value
-        const idade = document.getElementById("idade").value
-        const email = document.getElementById("email").value
-        const cargo = document.getElementById("cargo").value
-        const ul = document.getElementById("lista")
-        const enviarDados = await fetch('/usuarios/enviar',{
-            method: "POST",
-            headers:{
-                "Content-Type" : "application/JSON"
-            },
-            body:JSON.stringify({nome,idade,email,cargo})
-        })
-        if(!enviarDados.ok){
-            throw new Error(`Erro ao enviar dados ${enviarDados.status}`)
-        }
+bt.addEventListener("click", async function slaNome(evento) {
+  evento.preventDefault();
 
-        const resposta = await enviarDados.json()
+  try {
+    const tarefa = document.getElementById("tarefa").value;
+    const ul = document.getElementById("lista");
 
-        resposta.array.forEach(e => {
-            const li = document.createElement("li")
-            li.textContent = `Nome: ${e.nome} Idade: ${e.idade} Email: ${e.email} Cargo: ${e.cargo}`
-            ul.appendChild(li)
-        });
-    }catch(err){
-        console.log(err)
+    if (!tarefa) {
+      alert("Por favor, preencha todos os campos.");
+      return;
     }
-})
+
+    const enviarDados = await fetch("http://localhost:3000/usuarios/enviar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ tarefa }),
+    });
+
+    if (!enviarDados.ok) {
+      throw new Error(`Erro ao enviar dados ${enviarDados.status}`);
+    }
+
+    const resposta = await enviarDados.json();
+
+    ul.innerHTML = "";
+
+    resposta.forEach((e) => {
+      const li = document.createElement("li");
+      li.innerHTML = `Tarefa: ${e.tarefa} <button class="bt-excluir"> Excluir Tafefa </button> <button class="bt-check"> Riscar Tarefa </button>`;
+      ul.appendChild(li);
+    });
+
+    document.getElementById("tarefa").value = "";
+  } catch (err) {
+    console.error("Erro na requisição:", err);
+  }
+});
