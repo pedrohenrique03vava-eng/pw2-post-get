@@ -1,4 +1,3 @@
-/* 1. Reset e Variáveis Globais */
 * {
   padding: 0;
   margin: 0;
@@ -7,59 +6,87 @@
 
 :root {
   --primary: #008cff;
-  --primary-hover: #065a9e;
-  --success: #2ecc71;
-  --success-hover: #27ae60;
-  --danger: #e74c3c;
-  --danger-hover: #c0392b;
-  --background: #f8fafc;
+  --primary-hover: #0076d6;
+  --success: #10b981;
+  --success-hover: #059669;
+  --danger: #ef4444;
+  --danger-hover: #dc2626;
+  --background: #f1f5f9;
   --surface: #ffffff;
-  --text-main: #1e293b;
+  --text-main: #0f172a;
   --text-muted: #64748b;
-  --input-bg: #f1f5f9;
-  --shadow: rgba(149, 157, 165, 0.15) 0px 8px 24px;
-  --radius: 12px;
-  --transition: all 0.2s ease-in-out;
+  --input-bg: #f8fafc;
+  --border-color: #e2e8f0;
+
+  --shadow:
+    0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+  --radius: 16px;
+  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* 2. Layout da Página */
 body {
-  display: flex;
   font-family: "Poppins", sans-serif;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  min-height: 100vh;
   background-color: var(--background);
   color: var(--text-main);
-  padding: 20px;
-  gap: 24px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
 }
 
-h1 {
-  font-size: 28px;
-  font-weight: 700;
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 480px;
+  gap: 28px;
+}
+
+.app-header {
   text-align: center;
+}
+
+.saudacao {
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--text-muted);
   letter-spacing: -0.5px;
 }
 
-/* 3. Formulário de Dados */
+.card-tarefa {
+  width: 100%;
+  background-color: var(--surface);
+  padding: 32px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
 .form-dados {
   display: flex;
   flex-direction: column;
-  padding: 32px;
-  gap: 16px;
-  box-shadow: var(--shadow);
-  border-radius: var(--radius);
-  background-color: var(--surface);
-  width: 100%;
-  max-width: 450px;
+  gap: 20px;
 }
 
-.form-dados input {
-  padding: 14px 16px;
-  border-radius: var(--radius);
-  border: 2px solid transparent;
+.titulo-form {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: -0.5px;
+  margin-bottom: 4px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-tarefa {
+  padding: 14px 18px;
+  border-radius: 12px;
+  border: 2px solid var(--border-color);
   outline: none;
   background-color: var(--input-bg);
   font-family: "Poppins", sans-serif;
@@ -68,34 +95,45 @@ h1 {
   transition: var(--transition);
 }
 
-.form-dados input:focus {
-  border-color: var(--primary);
-  background-color: var(--surface);
+.input-tarefa::placeholder {
+  color: #94a3b8;
 }
 
-.form-dados button {
+.input-tarefa:focus {
+  border-color: var(--primary);
+  background-color: var(--surface);
+  box-shadow: 0 0 0 4px rgba(0, 140, 255, 0.15);
+}
+
+.btn-enviar {
   color: white;
   background-color: var(--primary);
   padding: 14px;
-  border-radius: var(--radius);
+  border-radius: 12px;
   border: none;
   cursor: pointer;
   font-weight: 600;
   font-size: 15px;
+  letter-spacing: 0.3px;
   transition: var(--transition);
+  box-shadow: 0 4px 12px rgba(0, 140, 255, 0.2);
 }
 
-.form-dados button:hover {
+.btn-enviar:hover {
   background-color: var(--primary-hover);
-  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0, 140, 255, 0.3);
+  transform: translateY(-2px);
 }
 
-.form-dados button:active {
-  transform: translateY(1px);
+.btn-enviar:active {
+  transform: translateY(0);
 }
 
-/* 4. Lista de Itens */
-#lista {
+.container-lista {
+  width: 100%;
+}
+
+.lista-tarefas {
   display: flex;
   flex-direction: column;
   padding: 24px;
@@ -104,44 +142,49 @@ h1 {
   border-radius: var(--radius);
   background-color: var(--surface);
   list-style: none;
-  width: 100%;
-  max-width: 450px;
+  border: 1px solid rgba(226, 232, 240, 0.8);
 }
 
-#lista:empty {
+.lista-tarefas:empty {
   display: none;
 }
 
-#lista li {
+.lista-tarefas li {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 16px;
-  background-color: var(--background);
-  border-radius: 8px;
+  padding: 14px 16px;
+  background-color: var(--input-bg);
+  border-radius: 10px;
   font-size: 15px;
+  font-weight: 500;
+  border: 1px solid var(--border-color);
   transition: var(--transition);
 }
 
-/* Estilo para quando o item estiver concluído/marcado */
-#lista li.concluido {
-  text-decoration: line-through;
-  color: var(--text-muted);
-  opacity: 0.7;
+.lista-tarefas li:hover {
+  background-color: var(--surface);
+  border-color: #cbd5e1;
+  transform: translateX(2px);
 }
 
-/* Container para agrupar os botões dentro do li */
+.lista-tarefas li.concluido {
+  text-decoration: line-through;
+  color: var(--text-muted);
+  opacity: 0.6;
+  background-color: #f1f5f9;
+}
+
 .li-actions {
   display: flex;
   gap: 8px;
 }
 
-/* 5. Botões de Ação (Check e Excluir) */
 .bt-check,
 .bt-excluir {
   color: white;
-  padding: 6px 12px;
-  border-radius: 6px;
+  padding: 8px 14px;
+  border-radius: 8px;
   border: none;
   cursor: pointer;
   font-weight: 600;
