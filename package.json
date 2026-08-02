@@ -1,0 +1,25 @@
+{
+  "name": "pw2-post-get",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pedrohenrique03vava-eng/pw2-post-get.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/pedrohenrique03vava-eng/pw2-post-get/issues"
+  },
+  "homepage": "https://github.com/pedrohenrique03vava-eng/pw2-post-get#readme",
+  "dependencies": {
+    "mysql2": "^3.23.1"
+  }
+}
