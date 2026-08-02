@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/pedrohenrique03vava-eng/pw2-post-get#readme",
   "dependencies": {
+    "dotenv": "^17.4.2",
     "mysql2": "^3.23.1"
   }
 }
