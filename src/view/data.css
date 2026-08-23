@@ -1,0 +1,126 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #008cff;
+  --primary-hover: #0076d6;
+  --success: #10b981;
+  --success-hover: #059669;
+  --danger: #ef4444;
+  --danger-hover: #dc2626;
+  --background: #f1f5f9;
+  --surface: #ffffff;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --input-bg: #f8fafc;
+  --border-color: #e2e8f0;
+
+  --shadow:
+    0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+  --radius: 16px;
+  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--background);
+  color: var(--text-main);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+#taks-img {
+  height: 100px;
+  width: 100px;
+}
+
+.main {
+  display: flex;
+  padding: 40px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 10px;
+  flex-direction: column;
+  background-color: white;
+  gap: 20px;
+}
+.top {
+  display: flex;
+  flex-direction: row;
+}
+.input-class {
+  padding: 14px 18px;
+  border-radius: 12px;
+  border: 2px solid var(--border-color);
+  outline: none;
+  background-color: var(--input-bg);
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  color: var(--text-main);
+  transition: var(--transition);
+}
+.input-class::placeholder {
+  color: #94a3b8;
+}
+.input-class:focus {
+  border-color: var(--primary);
+  background-color: var(--surface);
+  box-shadow: 0 0 0 4px rgba(0, 140, 255, 0.15);
+}
+
+.btn-logar {
+  color: white;
+  background-color: var(--primary);
+  padding: 14px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.3px;
+  transition: var(--transition);
+  box-shadow: 0 4px 12px rgba(0, 140, 255, 0.2);
+}
+
+.btn-logar:hover {
+  background-color: var(--primary-hover);
+  box-shadow: 0 6px 16px rgba(0, 140, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.btn-logar:active {
+  transform: translateY(0);
+}
+.container {
+  position: relative;
+  width: 400px;
+  min-height: 350px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  position: absolute;
+  width: 100%;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transform: translateX(40px);
+  transition: all 0.4s ease;
+}
+
+.form.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+
+  transform: translateX(0);
+}

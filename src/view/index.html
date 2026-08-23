@@ -10,6 +10,16 @@
     <title>Gerenciador de Tarefas</title>
   </head>
   <body>
+    <header class="header">
+      <div class="top">
+        <img
+          id="taks-img"
+          src="img/3d-to-do-list-icon-checklist-clipboard-suitable-for-organization-planning-and-task-tracking-ideal-for-business-education-and-administrative-concepts-png.webp"
+          alt=""
+        />
+        <h1>TaskDay</h1>
+      </div>
+    </header>
     <main class="app-container">
       <header class="app-header">
         <h1 class="saudacao">Olá, Usuário!</h1>
@@ -35,7 +45,12 @@
         </form>
       </section>
 
-      <section class="container-lista">
+      <aside class="container-lista">
+        <span id="tarefasFeitas"></span>
+        <span id="tarefasFazer"></span>
+      </aside>
+
+      <section class="container-data">
         <ul id="lista" class="lista-tarefas"></ul>
       </section>
     </main>

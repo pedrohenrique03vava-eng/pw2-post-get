@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="data.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://googleapis.com" rel="stylesheet" />
+    <title>Login e Cadastro</title>
+  </head>
+  <body>
+    <main class="main">
+      <div class="top">
+        <img
+          id="taks-img"
+          src="img/3d-to-do-list-icon-checklist-clipboard-suitable-for-organization-planning-and-task-tracking-ideal-for-business-education-and-administrative-concepts-png.webp"
+          alt=""
+        />
+        <h1>TaskDay</h1>
+      </div>
+
+      <div class="container">
+        <div id="login" class="form active">
+          <h2>Login</h2>
+          <input
+            type="email"
+            id="email-login"
+            class="input-class"
+            placeholder="E-mail"
+          />
+          <input
+            type="password"
+            id="senha-login"
+            class="input-class"
+            placeholder="Senha"
+          />
+          <button id="buttonLogar" class="btn-logar">Entrar</button>
+
+          <p>
+            Não tem uma conta?
+            <button id="mostrarCadastro" class="btn-logar">Cadastre-se</button>
+          </p>
+        </div>
+        <!---------------------------------------------------------------------------------------------------------------------------->
+        <div id="cadastro" class="form">
+          <h2>Cadastro</h2>
+          <input
+            type="text"
+            id="nome-cad"
+            class="input-class"
+            placeholder="Nome"
+          />
+          <input
+            type="email"
+            id="email-cad"
+            class="input-class"
+            placeholder="E-mail"
+          />
+          <input
+            type="password"
+            id="senha-email"
+            class="input-class"
+            placeholder="Senha"
+          />
+          <button id="" class="btn-logar">Cadastrar</button>
+
+          <p>
+            Já tem uma conta?
+            <button id="mostrarLogin" class="btn-logar">Entrar</button>
+          </p>
+        </div>
+      </div>
+    </main>
+    <script src="data.js"></script>
+  </body>
+</html>

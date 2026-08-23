@@ -1,211 +1,210 @@
+/* Configurações Globais / Reset */
 * {
-  padding: 0;
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
-}
-
-:root {
-  --primary: #008cff;
-  --primary-hover: #0076d6;
-  --success: #10b981;
-  --success-hover: #059669;
-  --danger: #ef4444;
-  --danger-hover: #dc2626;
-  --background: #f1f5f9;
-  --surface: #ffffff;
-  --text-main: #0f172a;
-  --text-muted: #64748b;
-  --input-bg: #f8fafc;
-  --border-color: #e2e8f0;
-
-  --shadow:
-    0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
-  --radius: 16px;
-  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: "Inter", sans-serif;
 }
 
 body {
-  font-family: "Poppins", sans-serif;
-  background-color: var(--background);
-  color: var(--text-main);
+  background-color: #f0f4f9; /* Fundo suave cinza/azul */
   min-height: 100vh;
   display: flex;
-  justify-content: center;
+  flex-direction: column; /* Alinha o Header no topo e o Main embaixo */
   align-items: center;
   padding: 40px 20px;
 }
 
+/* ==========================================================================
+   TOPO DO SITE: LOGO E TÍTULO (header.header)
+   ========================================================================== */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 40px; /* Dá espaço entre o topo e o formulário */
+}
+
+#taks-img {
+  width: 180px; /* Tamanho ajustado para o topo */
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.header h1 {
+  font-size: 2rem;
+  color: #0f172a; /* Azul escuro */
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   CONTEÚDO PRINCIPAL (main.app-container)
+   ========================================================================== */
 .app-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  gap: 15px;
   width: 100%;
-  max-width: 480px;
-  gap: 28px;
+  max-width: 420px; /* Mantém o card centralizado e na largura ideal */
 }
 
-.app-header {
-  text-align: center;
-}
-
+/* Saudação superior */
 .saudacao {
-  font-size: 24px;
-  font-weight: 500;
-  color: var(--text-muted);
-  letter-spacing: -0.5px;
+  font-size: 1.1rem;
+  color: #64748b; /* Cinza médio */
+  text-align: center;
+  font-weight: 400;
 }
 
+/* Card do Formulário */
 .card-tarefa {
-  width: 100%;
-  background-color: var(--surface);
-  padding: 32px;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  border: 1px solid rgba(226, 232, 240, 0.8);
-}
-
-.form-dados {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  background-color: #ffffff;
+  padding: 35px 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04); /* Sombra suave */
 }
 
 .titulo-form {
-  font-size: 22px;
+  font-size: 1.3rem;
+  color: #0f172a;
+  margin-bottom: 25px;
   font-weight: 700;
-  color: var(--text-main);
-  letter-spacing: -0.5px;
-  margin-bottom: 4px;
 }
 
+/* Input Group e Campo de Texto */
 .input-group {
-  display: flex;
-  flex-direction: column;
+  width: 100%;
+  margin-bottom: 20px;
 }
 
 .input-tarefa {
-  padding: 14px 18px;
-  border-radius: 12px;
-  border: 2px solid var(--border-color);
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: #334155;
+  background-color: #f8fafc;
   outline: none;
-  background-color: var(--input-bg);
-  font-family: "Poppins", sans-serif;
-  font-size: 15px;
-  color: var(--text-main);
-  transition: var(--transition);
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
 }
 
 .input-tarefa::placeholder {
-  color: #94a3b8;
+  color: #cbd5e1;
 }
 
 .input-tarefa:focus {
-  border-color: var(--primary);
-  background-color: var(--surface);
-  box-shadow: 0 0 0 4px rgba(0, 140, 255, 0.15);
+  border-color: #0084ff;
+  box-shadow: 0 0 0 3px rgba(0, 132, 255, 0.1);
 }
 
+/* Botão Enviar */
 .btn-enviar {
-  color: white;
-  background-color: var(--primary);
+  width: 100%;
   padding: 14px;
-  border-radius: 12px;
+  background-color: #0084ff; /* Azul vibrante */
+  color: #ffffff;
   border: none;
-  cursor: pointer;
+  border-radius: 8px;
+  font-size: 0.95rem;
   font-weight: 600;
-  font-size: 15px;
-  letter-spacing: 0.3px;
-  transition: var(--transition);
-  box-shadow: 0 4px 12px rgba(0, 140, 255, 0.2);
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 132, 255, 0.15);
+  transition:
+    background-color 0.2s,
+    transform 0.1s;
 }
 
 .btn-enviar:hover {
-  background-color: var(--primary-hover);
-  box-shadow: 0 6px 16px rgba(0, 140, 255, 0.3);
-  transform: translateY(-2px);
+  background-color: #0070d5;
 }
 
 .btn-enviar:active {
-  transform: translateY(0);
+  transform: scale(0.98);
 }
 
+/* ==========================================================================
+   ESTILIZAÇÃO EXTRA: LISTA DE TAREFAS
+   ========================================================================== */
 .container-lista {
-  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5px;
+  font-size: 0.9rem;
+  color: #64748b;
 }
 
 .lista-tarefas {
+  list-style: none;
   display: flex;
   flex-direction: column;
-  padding: 24px;
-  gap: 12px;
-  box-shadow: var(--shadow);
-  border-radius: var(--radius);
-  background-color: var(--surface);
-  list-style: none;
-  border: 1px solid rgba(226, 232, 240, 0.8);
+  gap: 10px;
+  margin-top: 10px;
 }
-
-.lista-tarefas:empty {
-  display: none;
-}
-
 .lista-tarefas li {
+  background-color: #ffffff;
+  padding: 15px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+  border: 1px solid #e2e8f0;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 14px 16px;
-  background-color: var(--input-bg);
-  border-radius: 10px;
-  font-size: 15px;
-  font-weight: 500;
-  border: 1px solid var(--border-color);
-  transition: var(--transition);
+  align-items: center;
+  gap: 15px;
+  font-size: 0.95rem;
+  color: #334155;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
 }
 
 .lista-tarefas li:hover {
-  background-color: var(--surface);
-  border-color: #cbd5e1;
-  transform: translateX(2px);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
 }
-
-.lista-tarefas li.concluido {
-  text-decoration: line-through;
-  color: var(--text-muted);
-  opacity: 0.6;
-  background-color: #f1f5f9;
-}
-
-.li-actions {
-  display: flex;
-  gap: 8px;
-}
-
-.bt-check,
 .bt-excluir {
-  color: white;
-  padding: 8px 14px;
-  border-radius: 8px;
+  width: 100%;
+  padding: 5px;
+  background-color: #ff0000; /* Azul vibrante */
+  color: #ffffff;
   border: none;
-  cursor: pointer;
+  border-radius: 8px;
+  font-size: 0.95rem;
   font-weight: 600;
-  font-size: 13px;
-  transition: var(--transition);
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 132, 255, 0.15);
+  transition:
+    background-color 0.2s,
+    transform 0.1s;
+}
+.bt-excluir:hover {
+  background-color: #d50000;
+}
+.bt-excluir:active {
+  transform: scale(0.98);
 }
 
 .bt-check {
-  background-color: var(--success);
+  width: 100%;
+  padding: 5px;
+  background-color: #7bff00; /* Azul vibrante */
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 132, 255, 0.15);
+  transition:
+    background-color 0.2s,
+    transform 0.1s;
 }
-
 .bt-check:hover {
-  background-color: var(--success-hover);
-  transform: translateY(-1px);
+  background-color: #72d500;
 }
-
-.bt-excluir {
-  background-color: var(--danger);
-}
-
-.bt-excluir:hover {
-  background-color: var(--danger-hover);
-  transform: translateY(-1px);
+.bt-check:active {
+  transform: scale(0.98);
 }

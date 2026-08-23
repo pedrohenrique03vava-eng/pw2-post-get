@@ -8,17 +8,29 @@ const db = mysql.createPool({
   database: process.env.DB_DATABASE,
 });
 
-const createTableQuery = `
+const createTableQueryTarefas = `
   CREATE TABLE IF NOT EXISTS tarefas (
     id INT AUTO_INCREMENT PRIMARY KEY,
     tarefa VARCHAR(100) NOT NULL,
-    status BOOLEAN,
+    status BOOLEAN DEFAULT FALSE,
+    criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+  )`;
+const createTableQueryUsers = `
+  CREATE TABLE IF NOT EXISTS usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    senha VARCHAR(255) NOT NULL,
+    nome VARCHAR(100) NOT NULL,
+    status BOOLEAN DEFAULT TRUE,
     criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
   )`;
 
 async function inicializationBD() {
   try {
-    await db.query(createTableQuery);
+    await db.query(createTableQueryTarefas);
+    console.log("Tabela 'tarefas' verificada/criada.");
+    await db.query(createTableQueryUsers);
+    console.log("Tabela 'users' verificada/criada.");
     console.log("tabela criada com sucesso");
   } catch (err) {
     console.log("Falha ao criar tabela", err.message);

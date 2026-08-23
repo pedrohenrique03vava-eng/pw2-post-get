@@ -1,5 +1,6 @@
 const bt = document.getElementById("btn-enviar");
-
+const tarefasFazer = document.getElementById("tarefasFazer");
+const tarefasFeitas = document.getElementById("tarefasFeitas");
 function atualizarInterface(listaDeTarefas) {
   const ul = document.getElementById("lista");
 
@@ -34,7 +35,7 @@ function atualizarInterface(listaDeTarefas) {
     document.getElementById("tarefa").value = "";
   });
 }
-
+//-------------------------------------------------------------------------------
 bt.addEventListener("click", async function dispararFront(evento) {
   evento.preventDefault();
   try {
