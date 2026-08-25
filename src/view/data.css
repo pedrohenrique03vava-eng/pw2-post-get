@@ -50,7 +50,10 @@ body {
 }
 .top {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  gap: 10px;
 }
 .input-class {
   padding: 14px 18px;
